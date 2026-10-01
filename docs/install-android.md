@@ -6,7 +6,7 @@ It does not need Google services — it works on GrapheneOS, LineageOS and other
 
 ## 1. Download
 
-Get [`cairn-debug-arm64.apk`](https://github.com/gebby40/cairn/raw/main/releases/cairn-debug-arm64.apk) — the link downloads the file directly. Easiest is to open this page on the phone and tap it.
+Get [`cairn-debug-arm64.apk`](https://github.com/gebby40/Cairn/raw/main/releases/cairn-debug-arm64.apk) — the link downloads the file directly. Easiest is to open this page on the phone and tap it.
 
 ## 2. Allow installs from your browser or files app
 

@@ -12,7 +12,7 @@ Think of it as the feature set of Mastodon or Signal, rebuilt on a foundation wh
 
 | | |
 |---|---|
-| **Android** | Download [`cairn-debug-arm64.apk`](https://github.com/gebby40/cairn/raw/main/releases/cairn-debug-arm64.apk) (Android 8.0 or newer, 64-bit phones). Install guide and checksum in [docs/install-android.md](docs/install-android.md). |
+| **Android** | Download [`cairn-debug-arm64.apk`](https://github.com/gebby40/Cairn/raw/main/releases/cairn-debug-arm64.apk) (Android 8.0 or newer, 64-bit phones). Install guide and checksum in [docs/install-android.md](docs/install-android.md). |
 | **Browser** | [app.cairnnet.com](https://app.cairnnet.com) — the same network from a desktop or phone browser. |
 | **Website** | [cairnnet.com](https://cairnnet.com) |
 
