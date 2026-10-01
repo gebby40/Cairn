@@ -44,7 +44,7 @@ sha256sum cairn-debug-arm64.apk
 It should print:
 
 ```
-d121e12731cb65662286b88ddc8abc5c7abc2eddc9237f04c14a008bf87fc483
+b81310927f14ca503b25061b212d47ef2238f9fe262e21e2fad48c6ecd9149d6
 ```
 
 ## Known limitations of this build
