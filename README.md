@@ -61,7 +61,7 @@ Found a bug, or something confusing? Open an issue on this repo. Please don't po
 
 ```
 SHA-256  cairn-debug-arm64.apk
-0f649d2826a8e7b06783fbbfa4c58a3ada62465d0e6f737a715b94b2c8b6537e
+33b43de08aad21548c852a166d4ad3486aaf79349f2a3d3f48aa8397ce5089c0
 ```
 
 See [docs/install-android.md](docs/install-android.md) for how to check it.
