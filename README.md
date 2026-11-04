@@ -20,8 +20,8 @@ The Android app and the web app talk to the same relay and interoperate: you can
 
 ## What you get
 
-- **Posts, replies, follows, timelines, tags, search** — the familiar social feed. Posts are public or unlisted; anything meant for a closed audience goes in an encrypted group. Who you follow stays on your device — it's never published.
-- **Direct messages** — end-to-end encrypted with a double-ratchet protocol (the same family of cryptography as Signal). Delivered through a per-day mailbox so the relay can't tell who is messaging whom.
+- **Posts, replies, follows, timelines, tags, search** — the familiar social feed. Posts are public or unlisted; anything meant for a closed audience goes in an encrypted group. Follows are public by default (they show in follower counts and notify the person); a private follow stays on your device only.
+- **Direct messages** — end-to-end encrypted with a double-ratchet protocol (the same family of cryptography as Signal). Delivered through a per-day mailbox so the relay never learns who sent a message — it can see which persona a message is for, when it arrived and how big it is, but not the contents or the sender.
 - **Groups** — encrypted group chats using the MLS standard (RFC 9420), with forward secrecy and post-compromise security as members come and go.
 - **File sharing** — photos, videos and documents are encrypted on your device, uploaded in chunks, and only the recipients hold the key. The relay stores ciphertext it cannot read.
 - **Voice calls** — end-to-end encrypted WebRTC calls between personas, phone ↔ phone or phone ↔ browser. Audio is relayed by default so the other party never sees your IP address. A safety code lets both people confirm nobody is in the middle. Calls ring on Android even with the app closed and the screen off — without Google services.
