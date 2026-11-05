@@ -7,10 +7,10 @@ Cairn's privacy comes from the data format, not from a server's policy. This pag
 | **Public posts** | The post, who signed it, when. | — (it's public) |
 | **Unlisted posts** | The post (hidden from public timelines and search, visible on your profile and in threads). | — |
 | **Likes, boosts, replies** | The objects (they're public, like Mastodon). | — |
-| **Who you follow** | The list of authors your device asks for when it loads your home timeline, in that request only. | A stored follow list — there isn't one on the relay. Nobody can look up who follows whom. |
+| **Who you follow** | Public follows (the default): the follow itself — it's a public object, shown in follower counts. Private follows: only the list of authors your device asks for when it loads your home timeline, in that request. | Your private follows — they're never stored on the relay. |
 | **Mutes and blocks** | Nothing. | Everything — they're applied on your device. |
-| **Direct messages** | That *a* message was placed in *a* mailbox, its size, and when. | The sender, the recipient's identity, the content. |
-| **Group messages** | Same as DMs. | Who is in the group, which mailboxes are the same group, the content. |
+| **Direct messages** | Which persona a message is for, when it arrived and how big it is. | The sender and the content. |
+| **Group messages** | Which persona sent each message, when, how big it is, and an opaque group id. | The content and the group's name. |
 | **Shared files** | Encrypted chunks stored by hash, their sizes, who uploaded them (signed upload). | File names, types, content, who the recipients are. |
 | **Call setup** | Encrypted DMs being delivered. | That a call happened at all (it looks like any DM). |
 | **Your synced vault** | An encrypted blob, its size, when it changed. | Anything inside: follows, sessions, messages, groups. |

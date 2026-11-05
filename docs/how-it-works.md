@@ -20,7 +20,7 @@ That has three consequences:
 - **Relays are interchangeable.** An object is valid anywhere; it doesn't belong to the server it was first posted to. You can post through one relay today and another tomorrow, and your followers can fetch from whichever has a copy.
 - **Social features are just object kinds.** Likes, boosts, lists and reports are objects like everything else. A relay builds timelines and counts by replaying the objects it has — it keeps no social-graph state of its own.
 
-Some things deliberately *aren't* objects. **Who you follow is private**: your follow list lives on your device (and in your encrypted vault), and your home timeline is built by asking the relay for those authors' posts per request — the relay stores nothing about it. Mutes and blocks work the same way.
+**Follows are public by default**: a follow is a signed object like a post, so it shows in follower counts and notifies the person you follow. You can also follow someone **privately** — that follow is not an object; it lives only on your device (and in your encrypted vault), and your home timeline asks the relay for those authors' posts per request, so the relay stores nothing about it. Mutes and blocks always work that way: they're never published.
 
 Posts are either **public** (in the firehose, tag timelines and search) or **unlisted** (stored in the clear, shown on your profile and in threads, but left out of discovery). There is intentionally no "followers-only" flag, because a relay-enforced audience is only as private as the relay; anything for a closed audience goes in an encrypted group instead.
 
@@ -36,13 +36,13 @@ The relay you use is a setting, not a home. Switching relays loses nothing.
 
 DMs use a **double-ratchet** session (the Olm protocol, the same design family as Signal's), so every message is encrypted with a fresh key and compromising one message doesn't expose the rest.
 
-Delivery works through **mailboxes**: each persona has a mailbox ID that changes every day, derived from the persona's keys so only the owner (and someone who already has a session with them) can compute it. A sender drops the encrypted message in the recipient's current mailbox; the recipient fetches it by proving ownership. The relay sees that *a* message was placed in *a* mailbox — not who sent it, not who the mailbox belongs to, and not what it says.
+Delivery works through **mailboxes**: each persona has a mailbox ID that changes every day, derived from the persona's keys so only the owner (and someone who already has a session with them) can compute it. A sender drops the encrypted message in the recipient's current mailbox; the recipient fetches it by proving ownership. The relay can't read the message and doesn't learn who sent it. It can tell which persona a message is for, when it arrived and how big it is.
 
 ## Groups
 
-Group chats use **MLS** (Messaging Layer Security, RFC 9420), the IETF standard for end-to-end encrypted groups. Each group has an evolving shared secret; adding or removing a member rotates it, so people who leave can't read what comes after and people who join can't read what came before. Group messages ride the same mailbox system as DMs.
+Group chats use **MLS** (Messaging Layer Security, RFC 9420), the IETF standard for end-to-end encrypted groups. Each group has an evolving shared secret; adding or removing a member rotates it, so people who leave can't read what comes after and people who join can't read what came before. Group messages are stored on the relay under an opaque group id.
 
-Only the members hold the keys. The relay cannot add anyone to a group, cannot read it, and cannot even tell which mailboxes belong to the same group.
+Only the members hold the keys. The relay cannot add anyone to a group or read it. It does see which persona sent each group message, when, how big it is, and the opaque group id — so it can tell which personas post in the same group.
 
 ## File sharing
 
@@ -53,7 +53,7 @@ Sharing a photo, video or document in a DM or group:
 3. A small **descriptor** — the key, the chunk list, the file name and type — is sent as an ordinary encrypted message to the recipients.
 4. A recipient fetches the chunks (anyone can fetch ciphertext by hash; it's useless without the key), checks each one against its hash, decrypts, and verifies the whole file.
 
-The relay stores encrypted blobs it can't open and sees no file names or types. Chunks expire after a while; the descriptor in the thread is what lets a recipient download before then.
+The relay stores encrypted blobs it can't open and sees no file names or types. Files are kept until the uploader deletes them (within a per-persona storage quota); the descriptor in the thread is what lets a recipient find and decrypt them.
 
 ## Voice calls
 
