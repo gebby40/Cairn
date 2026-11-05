@@ -36,7 +36,7 @@ The relay you use is a setting, not a home. Switching relays loses nothing.
 
 DMs use a **double-ratchet** session (the Olm protocol, the same design family as Signal's), so every message is encrypted with a fresh key and compromising one message doesn't expose the rest.
 
-Delivery works through **mailboxes**: each persona has a mailbox ID that changes every day, derived from the persona's keys so only the owner (and someone who already has a session with them) can compute it. A sender drops the encrypted message in the recipient's current mailbox; the recipient fetches it by proving ownership. The relay can't read the message and doesn't learn who sent it. It can tell which persona a message is for, when it arrived and how big it is.
+Delivery works through **mailboxes**: each persona has a mailbox ID that changes every day, derived from the persona's public keys. A sender drops the encrypted message in the recipient's current mailbox; the recipient fetches it by proving ownership. The relay can't read the message and doesn't learn who sent it. It can tell which persona a message is for, when it arrived and how big it is.
 
 ## Groups
 

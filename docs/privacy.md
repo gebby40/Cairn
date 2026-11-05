@@ -26,7 +26,7 @@ Cairn's privacy comes from the data format, not from a server's policy. This pag
 
 - **No phone number or email.** There's nothing to leak, sell, or be subpoenaed for.
 - **No contact upload.** Finding people is by persona ID, link, QR code, or search of public profiles.
-- **No server-side social graph for private content.** Who you message and which groups you're in exists only on your devices and in your encrypted vault.
+- **No stored social graph for private content.** Your contact list, your full list of groups and their member lists live only on your devices and in your encrypted vault. The relay still sees the traffic described above: which persona each message is for, and which personas post in a group.
 - **No IP logging.** Relays don't write client addresses to logs.
 - **No third-party push services on Android.** Background ringing uses Cairn's own connection to the relay, not Google's.
 - **No telemetry, no analytics, no ads.**
